@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nar Bağı — Menyu (demo)</title>
+  <meta name="description" content="Demo QR menyu: Azərbaycan, rus və ingilis dillərində, telefon üçün. Демо QR-меню ресторана на трёх языках.">
+  <meta name="theme-color" content="#9f1d33">
+  <meta name="robots" content="noindex">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nar Bağı — demo QR menyu">
+  <meta property="og:description" content="QR menyu nümunəsi: 3 dil, axtarış, kateqoriyalar, şəkillər.">
+  <meta property="og:image" content="https://ravenfield228.github.io/baku-qr-menu/demo/img/cover.webp">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <a class="skip" href="#menu">Menyuya keç</a>
+
+  <header class="hero">
+    <img class="hero__img" id="cover" src="img/cover.webp" alt="" width="1200" height="600" fetchpriority="high">
+    <div class="hero__shade"></div>
+    <div class="hero__top">
+      <span class="demo-badge" id="demoBadge" hidden>DEMO</span>
+      <div class="lang" role="group" aria-label="Dil / Язык / Language">
+        <button type="button" data-lang="az">AZ</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+    <div class="hero__text">
+      <h1 id="rName">Nar Bağı</h1>
+      <p id="rTagline"></p>
+    </div>
+  </header>
+
+  <section class="info" aria-label="Info">
+    <span class="chip"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span id="rHours"></span></span>
+    <a class="chip" id="rMap" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="rAddress"></span></a>
+    <a class="chip" id="rPhone"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-i18n="call"></span></a>
+    <a class="chip" id="rInsta" target="_blank" rel="noopener" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg>Instagram</a>
+    <button type="button" class="chip" id="rWifi" hidden><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".8"/></svg><span id="rWifiText"></span></button>
+  </section>
+
+  <div class="bar" id="bar">
+    <label class="search">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <span class="sr-only" data-i18n="search"></span>
+      <input type="search" id="q" autocomplete="off" enterkeyhint="search">
+    </label>
+    <nav class="cats" id="cats" aria-label="Kateqoriyalar"></nav>
+  </div>
+
+  <main id="menu" tabindex="-1"></main>
+  <p class="empty" id="empty" hidden></p>
+
+  <footer class="foot">
+    <p id="rNote"></p>
+    <p id="demoNote" hidden></p>
+    <p><a href="../" data-i18n="order"></a></p>
+    <p class="foot__credits"><span data-i18n="photos"></span> <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+  </footer>
+
+  <dialog id="dish" aria-labelledby="dishName">
+    <form method="dialog"><button class="dish__close" type="submit" data-i18n-aria="close">×</button></form>
+    <img id="dishImg" alt="" width="600" height="450">
+    <div class="dish__body">
+      <div class="dish__tags" id="dishTags"></div>
+      <h2 id="dishName"></h2>
+      <p id="dishDesc"></p>
+      <p class="dish__meta"><span id="dishPortion"></span><strong id="dishPrice"></strong></p>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="menu-data.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>
